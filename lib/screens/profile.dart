@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ifitness/widgets/bottom_navigation.dart';
 import 'package:ifitness/userData.dart';
 import 'dart:math';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,7 +23,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override void initState() {
     //SharedPreferences pref;
     SharedPreferences.getInstance().then((prefs){
-      //pref = prefs;
 
       object.getUserName(prefs).then(updateName);
     object.getUserWeight(prefs).then(updateWeight);
@@ -42,7 +40,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      bottomNavigationBar: BottomNavigation(),
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
@@ -204,6 +201,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 //Function to calculate body mass Index
 
 double bodyMassIndex(String weight, String height){
+  // this function is buggy. Work on it once more.
   if(weight==null || weight==''){
     weight='0';
   }

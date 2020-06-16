@@ -17,7 +17,6 @@ class SingleExercise extends StatelessWidget {
       elevation: 0.0,
       backgroundColor: Colors.transparent
 ),
-//      bottomNavigationBar: BottomNavigation(),
       body: SafeArea(
         child: ExerciseCard(title:title ,svgSrc:svgSrc ,time:time,),
       ),

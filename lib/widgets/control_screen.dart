@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ifitness/widgets/bottom_navigation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ifitness/userData.dart';
 import 'package:ifitness/screens/welcome.dart';
@@ -39,6 +40,6 @@ class _ControlScreenState extends State<ControlScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return firstTime ? WelcomeScreen() : HomePage();
+    return firstTime ? WelcomeScreen() : BottomNavigation();
   }
 }

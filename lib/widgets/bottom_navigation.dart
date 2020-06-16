@@ -1,8 +1,8 @@
 // this is the bottom navigation widget that will be applied to different screens
 import 'package:flutter/material.dart';
-
 import '../screens/home.dart';
 import '../screens/profile.dart';
+
 
 class BottomNavigation extends StatefulWidget {
   @override
@@ -19,37 +19,22 @@ class _BottomNavigationBarState extends State<BottomNavigation> {
       _selectedIndex = index;
     });
 
-    switch (_selectedIndex) {
-      case 0:
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context){
-              return  HomePage();
-            }));
-        break;
-      case 1:
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context){
-              return  ProfileScreen();
-            }));
-        break;
-    }
+  
   }
 
-//  final List<Widget>_children=[
-//    WelcomeScreen(),
-//    UserDetails(),
-//    HomePage(),
-//    ProfileScreen(),
-//
-//  ];
+ final List<Widget>_children=[
+   HomePage(),
+   ProfileScreen(),
+
+ ];
 
   @override
   Widget build(BuildContext context) {
 
-    return Container(
-//      body: _children[_selectedIndex],
+    return Scaffold(
+     body: _children[_selectedIndex],
 
-        child: BottomNavigationBar(
+        bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
           selectedItemColor: Color(0xff2d438d),
           onTap: _onItemTapped,
@@ -72,11 +57,7 @@ class _BottomNavigationBarState extends State<BottomNavigation> {
         ));
 
   }
-//  void _onItemTapped(int index) {
-//    setState(() {
-//      _selectedIndex = index;
-//    });
-//  }
+
 }
 
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:ifitness/screens/home.dart';
 import 'package:ifitness/userData.dart';
+import 'package:ifitness/widgets/bottom_navigation.dart';
 import 'package:ifitness/widgets/brandName.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -122,7 +122,7 @@ class _UserDetailsState extends State<UserDetails> {
                           await saveCredentials();
                           //the next page after user feeds in necessary credentials
                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                             return HomePage();  
+                             return BottomNavigation();  
                            }));
                           
                             
@@ -141,7 +141,6 @@ class _UserDetailsState extends State<UserDetails> {
     SharedPreferencesHelper object=new SharedPreferencesHelper();
 
      SharedPreferences prefs = await  SharedPreferences.getInstance();
-    // FormState formState = _formKey.currentState;
     if (_formKey.currentState.validate()) {
      // save the details
      object.saveUserName(nameTextController.text,prefs);

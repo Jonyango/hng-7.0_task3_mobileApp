@@ -23,7 +23,6 @@ class ExerciseCategory extends StatefulWidget {
 
 class _ExerciseCategoryState extends State<ExerciseCategory> {
 
-   final Set<ExerciseCategory>_saved=Set<ExerciseCategory>();
 
   @override
   Widget build(BuildContext context) {
@@ -83,12 +82,7 @@ class _ExerciseCategoryState extends State<ExerciseCategory> {
     );
   }
 
-  Widget _buildRow(ExerciseCategory category){
-    final bool alreadySaved=_saved.contains(category);
-//    final Iterable<ListTile>tiles=_saved.map((category) => null)
-    return ListTile();
-  }
-
+ 
 
 }
 

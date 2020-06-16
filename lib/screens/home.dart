@@ -1,7 +1,6 @@
 // This is the main page. It will contain the exercise that the users could work on.
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ifitness/widgets/bottom_navigation.dart';
 import 'package:ifitness/widgets/category_card.dart';
 import 'package:ifitness/userData.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -36,113 +35,112 @@ class _HomePageState extends State<HomePage> {
     String greetingTime=greeting();
 
     return Scaffold(
-      bottomNavigationBar: BottomNavigation(),
-        body: Stack(
-          children: <Widget>[
-            Container(
-              // the height of this container is 45% total of the height.
-              height: size.height * .45,
-              decoration: BoxDecoration(
-                  color: Color(0xff72c3f9),
-                  image: DecorationImage(
-                      alignment: Alignment.centerLeft,
-                      image: AssetImage('images/coverbk.png'))),
-            ),
-            SafeArea(
-              child:Padding(
-                  padding: EdgeInsets.symmetric(horizontal:20.0,),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        SizedBox(height:45.0),
-                        Text('$greetingTime, \n$_name',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w900,
-                          fontFamily: 'Work Sans/WorkSans-Bold',
-                          fontSize: 30.0,
-                          color: Color(0xff2d438d),
+       
+    body: Stack(
+      children: <Widget>[
+        Container(
+          // the height of this container is 45% total of the height.
+          height: size.height * .45,
+          decoration: BoxDecoration(
+              color: Color(0xff72c3f9),
+              image: DecorationImage(
+                  alignment: Alignment.centerLeft,
+                  image: AssetImage('images/coverbk.png'))),
+        ),
+        SafeArea(
+          child:Padding(
+              padding: EdgeInsets.symmetric(horizontal:20.0,),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(height:45.0),
+                    Text('$greetingTime, \n$_name',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontFamily: 'Work Sans/WorkSans-Bold',
+                      fontSize: 30.0,
+                      color: Color(0xff2d438d),
 
-                        ),),
-                        SizedBox(height: 20.0),
-                        Center(
-                          child: Text('What would you like to do today?',
-                          style: TextStyle(
-                            fontFamily: 'Work Sans/WorkSans-Regular',
-                            fontSize: 18.0,
-                            color: Color(0xff2d438d),
-                          ),),
-                        ),
-                        SizedBox(height:80.0),
-                        Expanded(
-                            child: GridView.count(
-                              crossAxisCount: 2,
-                              childAspectRatio: .85,
-                              crossAxisSpacing: 20,
-                              mainAxisSpacing: 20,
-//                              scrollDirection: Axis.vertical,
-                              children: <Widget>[
-                                ExerciseCategory(
-                                  title: "Running",
-                                  svgSrc: "images/running.svg",
-                                  time:"30-45 mins",
+                    ),),
+                    SizedBox(height: 20.0),
+                    Center(
+                      child: Text('What would you like to do today?',
+                      style: TextStyle(
+                        fontFamily: 'Work Sans/WorkSans-Regular',
+                        fontSize: 18.0,
+                        color: Color(0xff2d438d),
+                      ),),
+                    ),
+                    SizedBox(height:80.0),
+                    Expanded(
+                        child: GridView.count(
+                          crossAxisCount: 2,
+                          childAspectRatio: .85,
+                          crossAxisSpacing: 20,
+                          mainAxisSpacing: 20,
+                          children: <Widget>[
+                            ExerciseCategory(
+                              title: "Running",
+                              svgSrc: "images/running.svg",
+                              time:"30-45 mins",
 
-                                ),
-                                ExerciseCategory(
-                                  title: "Yoga",
-                                  svgSrc: "images/yoga.svg",
-                                  time: "30-45 mins",
-
-
-                                ),
-                                ExerciseCategory(
-                                  title: "Pilates",
-                                  svgSrc: "images/pilates.svg",
-                                  time:"25-40 mins",
-
-                                ),
-                                ExerciseCategory(
-                                  title: "Sit Ups",
-                                  svgSrc: "images/situps.svg",
-                                  time: "20 mins",
+                            ),
+                            ExerciseCategory(
+                              title: "Yoga",
+                              svgSrc: "images/yoga.svg",
+                              time: "30-45 mins",
 
 
-                                ),
+                            ),
+                            ExerciseCategory(
+                              title: "Pilates",
+                              svgSrc: "images/pilates.svg",
+                              time:"25-40 mins",
 
-                                ExerciseCategory(
-                                  title: "Push Ups",
-                                  svgSrc: "images/pushup.svg",
-                                  time:"15-20 mins",
-
-                                ),
-                                ExerciseCategory(
-                                  title: "Squats",
-                                  svgSrc: "images/squats.svg",
-                                  time:"7-15 mins",
-
-
-                                ),
-                                ExerciseCategory(
-                                  title: "Aerobics",
-                                  svgSrc: "images/workout.svg",
-                                  time:"12 mins",
-
-                                ),
-                                ExerciseCategory(
-                                  title: "Stretches",
-                                  svgSrc: "images/stretches.svg",
-                                  time:"3-7 mins",
+                            ),
+                            ExerciseCategory(
+                              title: "Sit Ups",
+                              svgSrc: "images/situps.svg",
+                              time: "20 mins",
 
 
-                                ),
-                              ],
-                            ))
-                      ],
-              ),)),
-        ],
-      )
+                            ),
+
+                            ExerciseCategory(
+                              title: "Push Ups",
+                              svgSrc: "images/pushup.svg",
+                              time:"15-20 mins",
+
+                            ),
+                            ExerciseCategory(
+                              title: "Squats",
+                              svgSrc: "images/squats.svg",
+                              time:"7-15 mins",
 
 
-    );
+                            ),
+                            ExerciseCategory(
+                              title: "Aerobics",
+                              svgSrc: "images/workout.svg",
+                              time:"12 mins",
+
+                            ),
+                            ExerciseCategory(
+                              title: "Stretches",
+                              svgSrc: "images/stretches.svg",
+                              time:"3-7 mins",
+
+
+                            ),
+                          ],
+                        ))
+                  ],
+          ),)),
+    ],
+        )
+
+
+      );
 
 
   }
